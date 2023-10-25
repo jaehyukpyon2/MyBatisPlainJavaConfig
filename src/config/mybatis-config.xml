@@ -8,13 +8,14 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="org.mariadb.jdbc.Driver"/>
-                <property name="url" value="jdbc:mariadb://localhost:3306/hr"/>
+                <property name="url" value="jdbc:mariadb://localhost:3306/thisisjava"/>
                 <property name="username" value="root"/>
                 <property name="password" value="12345"/>
             </dataSource>
         </environment>
     </environments>
     <mappers>
-        <mapper resource="org/mybatis/example/HRMapper.xml"/>
+        <mapper resource="mapperxml/UsersMapper.xml"/>
+        <mapper resource="mapperxml/BoardsMapper.xml"/>
     </mappers>
 </configuration>

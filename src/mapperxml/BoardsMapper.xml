@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.BoardsMapper">
+    <select id="getAllBoardsList" resultType="vo.BoardsVO">
+        select *
+        from boards
+    </select>
+
+    <insert id="insertBoard" parameterType="vo.BoardsVO">
+        insert
+        into boards(btitle, bcontent, bwriter, bfilename, bfiledata)
+        values(#{btitle}, #{bcontent}, #{bwriter}, #{bfilename}, #{bfiledata})
+    </insert>
+
+    <select id="readBoard" parameterType="Integer" resultType="vo.BoardsVO">
+        select *
+        from boards
+        where bno = #{bno}
+    </select>
+
+    <update id="updateBoard" parameterType="vo.BoardsVO">
+        update boards
+        set btitle = #{btitle}, bcontent = #{bcontent}, bwriter = #{bwriter}
+        where bno = #{bno}
+    </update>
+
+    <delete id="deleteBoard" parameterType="Integer">
+        delete
+        from boards
+        where bno = #{bno}
+    </delete>
+
+    <delete id="truncateBoardsTable">
+        truncate table boards
+    </delete>
+</mapper>
