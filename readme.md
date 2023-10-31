@@ -22,8 +22,8 @@
 > * read<br>
 > ![read](https://github.com/jaehyukpyon2/MyBatisPlainJavaConfig/assets/145942491/e7ce744d-8a03-4ef2-86e3-332eca523ec2)
 
-> * update
+> * update<br>
 > ![update](https://github.com/jaehyukpyon2/MyBatisPlainJavaConfig/assets/145942491/873d1c60-4005-4517-9a5f-55ea29e19c95)
 
-> * delete
+> * delete<br>
 > ![delete](https://github.com/jaehyukpyon2/MyBatisPlainJavaConfig/assets/145942491/9f2f97d7-e622-4ce3-9fd7-911826978069)
