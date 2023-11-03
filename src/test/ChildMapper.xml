@@ -3,21 +3,27 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="test.ChildMapper">
-<!--    <resultMap id="ParentDAO" type="ParentDAO">-->
-<!--        <result column="ID" property="id" />-->
-<!--        <result column="PARENT_NAME" property="parentName" />-->
-<!--        <result column="PARENT_AGE" property="parentAge" />-->
-<!--    </resultMap>-->
-    <resultMap id="ChildDAO" type="ChildDAO">
-<!--        <result column="ID" property="id" />-->
-<!--        <result column="CHILD_NAME" property="childName" />-->
-<!--        <result column="CHILD_AGE" property="childAge" />-->
-        <collection property="parentDAO" resultMap="ParentDAO"></collection>
+
+    <resultMap id="map_ParentDAO" type="test.ParentDAO">
+        <result column="PARENT_ID" property="id" />
+        <result column="PARENT_NAME" property="parentName" />
+        <result column="PARENT_AGE" property="parentAge" />
+    </resultMap>
+    <resultMap id="map_ChildDAO" type="test.ChildDAO">
+        <result column="CHILD_ID" property="id" />
+        <result column="CHILD_NAME" property="childName" />
+        <result column="CHILD_AGE" property="childAge" />
+        <collection property="parentDAO" resultMap="map_ParentDAO"></collection>
     </resultMap>
 
-    <select id="getAll" resultType="ChildDAO">
+    <select id="getAll" resultMap="map_ChildDAO">
+        select p.id as parent_id, parent_name, parent_age, c.id as child_id, child_name, child_age, parent_id as fk_parent_id
+        from parent p inner join child c
+            on p.id = c.parent_id
+    </select>
+
+    <select id="getAllChild" resultType="test.ChildDAO">
         select *
-        from parent inner join child
-        on parent.id = child.parent_id
+        from child c
     </select>
 </mapper>
