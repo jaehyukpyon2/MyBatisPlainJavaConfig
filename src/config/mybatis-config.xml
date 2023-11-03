@@ -3,6 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="test.ChildDAO" alias="ChildDAO"></typeAlias>
+        <typeAlias type="test.ParentDAO" alias="ParentDAO"></typeAlias>
+    </typeAliases>
     <environments default="development">
         <environment id="development">
             <transactionManager type="JDBC"/>
@@ -17,5 +24,6 @@
     <mappers>
         <mapper resource="mapperxml/UsersMapper.xml"/>
         <mapper resource="mapperxml/BoardsMapper.xml"/>
+        <mapper resource="test/ChildMapper.xml" />
     </mappers>
 </configuration>
