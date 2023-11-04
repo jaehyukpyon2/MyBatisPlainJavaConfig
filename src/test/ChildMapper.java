@@ -6,6 +6,6 @@ import java.util.List;
 
 @Mapper
 public interface ChildMapper {
-    List<ChildDAO> getAll();
+    List<ChildDAO> getAllChildWithParent();
     List<ChildDAO> getAllChild();
 }

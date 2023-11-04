@@ -16,8 +16,8 @@
         <collection property="parentDAO" resultMap="map_ParentDAO"></collection>
     </resultMap>
 
-    <select id="getAll" resultMap="map_ChildDAO">
-        select p.id as parent_id, parent_name, parent_age, c.id as child_id, child_name, child_age, parent_id as fk_parent_id
+    <select id="getAllChildWithParent" resultMap="map_ChildDAO">
+        select p.id as parent_id, parent_name, parent_age, c.id as child_id, child_name, child_age
         from parent p inner join child c
             on p.id = c.parent_id
     </select>
